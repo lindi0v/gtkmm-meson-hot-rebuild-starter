@@ -1,0 +1,31 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Meson: setup",
+      "type": "shell",
+      "command": "PKG_CONFIG_PATH=\"/opt/homebrew/lib/pkgconfig:/opt/homebrew/share/pkgconfig:$PKG_CONFIG_PATH\" meson setup build --reconfigure || PKG_CONFIG_PATH=\"/opt/homebrew/lib/pkgconfig:/opt/homebrew/share/pkgconfig:$PKG_CONFIG_PATH\" meson setup build",
+      "problemMatcher": []
+    },
+    {
+      "label": "Meson: build",
+      "type": "shell",
+      "command": "meson compile -C build",
+      "dependsOn": "Meson: setup",
+      "dependsOrder": "sequence",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": "$gcc"
+    },
+    {
+      "label": "Meson: run",
+      "type": "shell",
+      "command": "./build/some-app",
+      "dependsOn": "Meson: build",
+      "dependsOrder": "sequence",
+      "problemMatcher": []
+    }
+  ]
+}
