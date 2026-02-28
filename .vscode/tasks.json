@@ -26,6 +26,13 @@
       "dependsOn": "Meson: build",
       "dependsOrder": "sequence",
       "problemMatcher": []
+    },
+    {
+      "label": "Meson: dev hot",
+      "type": "shell",
+      "command": "./scripts/dev-hot.sh",
+      "isBackground": true,
+      "problemMatcher": []
     }
   ]
 }
